@@ -4,9 +4,19 @@ package com.example.protos;
 
 import "google/type/date.proto";
 import "validate/validate.proto";
+import "scalapb/scalapb.proto";
 
 message DateWrapper {
 
-  google.type.Date date = 1 [(validate.rules).message.required = true];
+  string dateString = 1 [(validate.rules).string.min_len = 1];
 
+  Boop beep = 2 [(validate.rules).message.required = true];
+
+  google.type.Date date = 3 [(validate.rules).message.required = true];
+
+}
+
+
+message Boop {
+  string dateString = 1 [(validate.rules).string.min_len = 2];
 }
