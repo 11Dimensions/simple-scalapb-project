@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.example.protos;
+
+import "google/type/date.proto";
+import "validate/validate.proto";
+
+message DateWrapper {
+
+  google.type.Date date = 1 [(validate.rules).message.required = true];
+
+}
